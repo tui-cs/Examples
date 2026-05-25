@@ -20,7 +20,7 @@ using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
 // Check for smoke test mode
-var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -41,11 +41,11 @@ string? initialValue = null;
 
 for (var i = 0; i < args.Length; i++)
 {
-    if (args [i] is "--initial" or "-i")
+    if (args[i] is "--initial" or "-i")
     {
         if (i + 1 < args.Length)
         {
-            initialValue = args [++i];
+            initialValue = args[++i];
         }
         else
         {
@@ -64,7 +64,7 @@ IApplication app = Application.Create ().Init ();
 // Wrap ColorPicker in a RunnableWrapper — no dialog buttons, just the picker.
 // ColorPicker raises Command.Accept on double-click.
 RunnableWrapper<ColorPicker, Color?> wrapper = new ()
-    { Title = "Select a Color (Double-click to accept, Esc to cancel)", ResultExtractor = cp => cp.Value };
+{ Title = "Select a Color (Double-click to accept, Esc to cancel)", ResultExtractor = cp => cp.Value };
 
 // Enable color name display
 wrapper.GetWrappedView ().Style.ShowColorName = true;

@@ -13,7 +13,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 using IApplication app = Application.Create ().Init ();
 
-var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -53,7 +53,7 @@ public sealed class ShortcutTestWindow : Window
         // Test Shortcut 1: CheckBox CommandView
         CheckBox cb1 = new () { Id = "cb1", Text = "Option 1", CanFocus = false };
 
-        Shortcut shortcut1 = new()
+        Shortcut shortcut1 = new ()
         {
             Id = "shortcut1",
             HelpText = "Option1",
@@ -66,7 +66,7 @@ public sealed class ShortcutTestWindow : Window
         Add (shortcut1);
 
         // Test Shortcut 2: CheckBox CommandView (CanFocus = true)
-        Shortcut shortcut2 = new()
+        Shortcut shortcut2 = new ()
         {
             Id = "shortcut2",
             HelpText = "Option2",
@@ -79,7 +79,7 @@ public sealed class ShortcutTestWindow : Window
         Add (shortcut2);
 
         // Test Shortcut 3: Button CommandView
-        Shortcut shortcut3 = new()
+        Shortcut shortcut3 = new ()
         {
             Id = "shortcut3",
             HelpText = "Button",
@@ -92,7 +92,7 @@ public sealed class ShortcutTestWindow : Window
         Add (shortcut3);
 
         // Instructions
-        Label instructions = new()
+        Label instructions = new ()
         {
             X = 0,
             Y = Pos.Bottom (shortcut3) + 2,

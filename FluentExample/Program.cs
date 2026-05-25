@@ -6,7 +6,7 @@ using Terminal.Gui.Resources;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
-var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 IApplication app = Application.Create ().Init ();
 
@@ -51,7 +51,7 @@ public class ColorPickerView : Runnable<Color?>
         Width = Dim.Auto ();
 
         // Add instructions
-        Label instructions = new()
+        Label instructions = new ()
         {
             Text = "Use arrow keys to select a color, Enter to accept",
             X = Pos.Center (),

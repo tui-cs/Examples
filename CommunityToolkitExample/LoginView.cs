@@ -46,23 +46,23 @@ internal partial class LoginView : IRecipient<Message<LoginActions>>
         switch (message.Value)
         {
             case LoginActions.Clear:
-            {
-                loginProgressLabel.Text = ViewModel.LoginProgressMessage;
-                validationLabel.Text = ViewModel.ValidationMessage;
-                validationLabel.SetScheme (ViewModel.ValidationScheme);
-                break;
-            }
+                {
+                    loginProgressLabel.Text = ViewModel.LoginProgressMessage;
+                    validationLabel.Text = ViewModel.ValidationMessage;
+                    validationLabel.SetScheme (ViewModel.ValidationScheme);
+                    break;
+                }
             case LoginActions.LoginProgress:
-            {
-                loginProgressLabel.Text = ViewModel.LoginProgressMessage;
-                break;
-            }
+                {
+                    loginProgressLabel.Text = ViewModel.LoginProgressMessage;
+                    break;
+                }
             case LoginActions.Validation:
-            {
-                validationLabel.Text = ViewModel.ValidationMessage;
-                validationLabel.SetScheme (ViewModel.ValidationScheme);
-                break;
-            }
+                {
+                    validationLabel.Text = ViewModel.ValidationMessage;
+                    validationLabel.SetScheme (ViewModel.ValidationScheme);
+                    break;
+                }
         }
 
         SetText ();

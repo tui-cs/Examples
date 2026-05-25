@@ -15,7 +15,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 IApplication app = Application.Create ().Init ();
 
-var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -49,9 +49,9 @@ public sealed class ExampleWindow : Runnable<string?>
         Title = $"Example App ({Application.GetDefaultKey (Command.Quit)} to quit)";
 
         // Create input components and labels
-        Label usernameLabel = new() { Text = "Username:" };
+        Label usernameLabel = new () { Text = "Username:" };
 
-        TextField userNameText = new()
+        TextField userNameText = new ()
         {
             // Position text field adjacent to the label
             X = Pos.Right (usernameLabel) + 1,
@@ -60,10 +60,10 @@ public sealed class ExampleWindow : Runnable<string?>
             Width = Dim.Fill ()
         };
 
-        Label passwordLabel = new()
-            { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
+        Label passwordLabel = new ()
+        { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
 
-        TextField passwordText = new()
+        TextField passwordText = new ()
         {
             Secret = true,
 
@@ -74,7 +74,7 @@ public sealed class ExampleWindow : Runnable<string?>
         };
 
         // Create login button
-        Button btnLogin = new()
+        Button btnLogin = new ()
         {
             Text = "Login",
             Y = Pos.Bottom (passwordLabel) + 1,

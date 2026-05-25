@@ -10,7 +10,7 @@ public static class Program
 
     private static async Task Main (string[] args)
     {
-        var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+        var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
         ConfigurationManager.Enable (ConfigLocations.All);
         Services = ConfigureServices ();

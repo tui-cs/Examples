@@ -21,17 +21,20 @@ namespace ReactiveExample;
 [DataContract]
 public partial class LoginViewModel : ReactiveObject
 {
-    [IgnoreDataMember] [ObservableAsProperty]
+    [IgnoreDataMember]
+    [ObservableAsProperty]
     private bool _isValid;
 
-    [DataMember] [Reactive] private string _password = string.Empty;
+    [DataMember][Reactive] private string _password = string.Empty;
 
-    [IgnoreDataMember] [ObservableAsProperty]
+    [IgnoreDataMember]
+    [ObservableAsProperty]
     private int _passwordLength;
 
-    [DataMember] [Reactive] private string _username = string.Empty;
+    [DataMember][Reactive] private string _username = string.Empty;
 
-    [IgnoreDataMember] [ObservableAsProperty]
+    [IgnoreDataMember]
+    [ObservableAsProperty]
     private int _usernameLength;
 
     public LoginViewModel ()

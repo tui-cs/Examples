@@ -43,7 +43,7 @@ public class ExampleSmokeTests
         };
 
         // DisableRealDriverIO prevents the driver from probing the terminal
-        psi.Environment ["DisableRealDriverIO"] = "1";
+        psi.Environment["DisableRealDriverIO"] = "1";
 
         using Process? process = Process.Start (psi);
 
