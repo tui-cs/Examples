@@ -15,7 +15,7 @@ using Color = Terminal.Gui.Drawing.Color;
 
 // ReSharper disable AccessToDisposedClosure
 
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {

@@ -1,4 +1,4 @@
-﻿// A simple Terminal.Gui example in C# - using C# 9.0 Top-level statements
+// A simple Terminal.Gui example in C# - using C# 9.0 Top-level statements
 
 // This is a simple example application.  For the full range of functionality
 // see the UICatalog project
@@ -15,7 +15,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 IApplication app = Application.Create ().Init ();
 
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {

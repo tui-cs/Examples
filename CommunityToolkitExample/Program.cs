@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Terminal.Gui.App;
 using Terminal.Gui.Configuration;
 
@@ -8,9 +8,9 @@ public static class Program
 {
     public static IServiceProvider? Services { get; private set; }
 
-    private static async Task Main (string [] args)
+    private static async Task Main (string[] args)
     {
-        bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+        bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
         ConfigurationManager.Enable (ConfigLocations.All);
         Services = ConfigureServices ();

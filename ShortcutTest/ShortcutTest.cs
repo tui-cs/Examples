@@ -1,4 +1,4 @@
-﻿// Test app for Command Propagation through Shortcut hierarchy
+// Test app for Command Propagation through Shortcut hierarchy
 // Tests: CheckBox (CommandView) -> Shortcut -> Window
 
 using System.Collections.ObjectModel;
@@ -13,7 +13,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 using IApplication app = Application.Create ().Init ();
 
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -123,7 +123,7 @@ public sealed class ShortcutTestWindow : Window
                                    };
             shortcut.Accepting += (s, args) => { LogEvent ($"{(s as View)?.Id}", args); };
 
-            shortcut.CommandView.Activating += (s, args) =>
+            shortcut.CommandView!.Activating += (s, args) =>
                                                {
                                                    if (args.Handled)
                                                    {
@@ -132,7 +132,7 @@ public sealed class ShortcutTestWindow : Window
                                                    LogEvent ($"{(s as View)?.Id}", args);
                                                };
 
-            shortcut.CommandView.Accepting += (s, args) =>
+            shortcut.CommandView!.Accepting += (s, args) =>
                                               {
                                                   if (args.Handled)
                                                   {
@@ -141,7 +141,7 @@ public sealed class ShortcutTestWindow : Window
                                                   LogEvent ($"{(s as View)?.Id}", args);
                                               };
 
-            if (shortcut.CommandView is CheckBox cb)
+            if (shortcut.CommandView! is CheckBox cb)
             {
                 cb.ValueChanged += (s, args) => { LogEvent ($"{(s as View)?.Id} {args.OldValue} -> {args.NewValue}", null); };
             }

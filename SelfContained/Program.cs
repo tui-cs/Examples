@@ -1,4 +1,4 @@
-﻿// This is a test application for a self-contained single file.
+// This is a test application for a self-contained single file.
 
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -14,9 +14,9 @@ namespace SelfContained;
 
 public static class Program
 {
-    private static async Task Main (string [] args)
+    private static async Task Main (string[] args)
     {
-        bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+        bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
         if (smokeTest)
         {

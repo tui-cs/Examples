@@ -1,1 +1,1 @@
-﻿namespace CommunityToolkitExample;internal class Message<T>{    public T? Value { get; set; }}
+namespace CommunityToolkitExample; internal class Message<T> { public T? Value { get; set; } }

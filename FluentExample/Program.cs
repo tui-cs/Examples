@@ -6,7 +6,7 @@ using Terminal.Gui.Resources;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 IApplication app = Application.Create ().Init ();
 

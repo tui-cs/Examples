@@ -14,7 +14,6 @@ using Terminal.Gui.App;
 using Terminal.Gui.Drawing;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
-using UICatalog;
 // ReSharper disable AccessToModifiedClosure
 
 // Set Inline mode BEFORE Init
@@ -24,7 +23,7 @@ Application.AppModel = AppModel.Inline;
 
 IApplication app = Application.Create ().Init ();
 
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {

@@ -1,1 +1,8 @@
-﻿namespace CommunityToolkitExample;internal enum LoginActions{    Clear,    Validation,    LoginProgress}
+namespace CommunityToolkitExample;
+
+internal enum LoginActions
+{
+    Clear,
+    Validation,
+    LoginProgress
+}

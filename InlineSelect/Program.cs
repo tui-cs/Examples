@@ -24,7 +24,7 @@ using Terminal.Gui.Views;
 using Timeout = System.Threading.Timeout;
 
 // Check for smoke test mode
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -49,7 +49,7 @@ string? initialValue = null;
 
 for (var i = 0; i < args.Length; i++)
 {
-    string arg = args [i];
+    string arg = args[i];
 
     switch (arg)
     {
@@ -57,7 +57,7 @@ for (var i = 0; i < args.Length; i++)
 
         case "--vertical" or "-v": orientation = Orientation.Vertical; break;
 
-        case "--timeout" or "-t" when i + 1 < args.Length && int.TryParse (args [i + 1], out int seconds):
+        case "--timeout" or "-t" when i + 1 < args.Length && int.TryParse (args[i + 1], out int seconds):
             timeoutSeconds = seconds;
             i++; // skip the next arg (the number)
 
@@ -68,7 +68,7 @@ for (var i = 0; i < args.Length; i++)
 
             return 1;
 
-        case "--initial" or "-i" when i + 1 < args.Length: initialValue = args [++i]; break;
+        case "--initial" or "-i" when i + 1 < args.Length: initialValue = args[++i]; break;
 
         case "--initial" or "-i":
             Console.Error.WriteLine ("Error: --initial requires an index value.");
@@ -161,7 +161,7 @@ app.Dispose ();
 
 if (result is { } selectedIndex and >= 0 && selectedIndex < options.Count)
 {
-    Console.WriteLine (options [selectedIndex]);
+    Console.WriteLine (options[selectedIndex]);
 
     return 0;
 }

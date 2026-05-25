@@ -1,4 +1,5 @@
-﻿using System.Reactive.Concurrency;
+#nullable disable
+using System.Reactive.Concurrency;
 using ReactiveUI.Builder;
 using Terminal.Gui.App;
 using Terminal.Gui.Configuration;
@@ -9,9 +10,9 @@ public static class Program
 {
     internal static ReactiveUIBuilder _rxApp;
 
-    private static async Task Main (string [] args)
+    private static async Task Main (string[] args)
     {
-        bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+        bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
         ConfigurationManager.Enable (ConfigLocations.All);
         using IApplication app = Application.Create ();

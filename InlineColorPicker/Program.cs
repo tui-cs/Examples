@@ -20,7 +20,7 @@ using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
 // Check for smoke test mode
-bool smokeTest = args.Length > 0 && args [0] == "--smoke-test";
+bool smokeTest = args.Length > 0 && args[0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -41,11 +41,11 @@ string? initialValue = null;
 
 for (var i = 0; i < args.Length; i++)
 {
-    if (args [i] is "--initial" or "-i")
+    if (args[i] is "--initial" or "-i")
     {
         if (i + 1 < args.Length)
         {
-            initialValue = args [++i];
+            initialValue = args[++i];
         }
         else
         {
