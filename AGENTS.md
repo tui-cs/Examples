@@ -35,6 +35,27 @@ cd Example
 dotnet run
 ```
 
+## Lint & Format
+
+CI enforces coding style via two mechanisms:
+
+1. **`dotnet format`** — verifies .editorconfig compliance
+2. **ReSharper `jb cleanupcode`** — catches what `dotnet format` misses (var usage, expression-bodied members, spacing)
+
+To check/fix locally:
+
+```bash
+# Check only (matches CI)
+dotnet format Examples.sln --verify-no-changes
+
+# Auto-fix
+dotnet format Examples.sln
+
+# ReSharper cleanup (requires dotnet tool restore first)
+dotnet tool restore
+dotnet jb cleanupcode Examples.sln --profile="Built-in: Full Cleanup" --no-build
+```
+
 ## Code Style
 
 This repository follows Terminal.Gui coding conventions:
@@ -46,13 +67,15 @@ This repository follows Terminal.Gui coding conventions:
 5. **Use `[...]`** collection expressions
 6. **SubView/SuperView** terminology (never "child/parent")
 7. **Early return / guard clauses** over nested conditionals
+8. **TreatWarningsAsErrors** is enabled — zero warnings policy
 
 ## Project Structure
 
 - Each example is a standalone console app in its own directory
 - All projects reference Terminal.Gui via NuGet PackageReference (not ProjectReference)
 - Shared settings are in `Directory.Build.props` and `Directory.Packages.props`
-- The `.editorconfig` enforces the Terminal.Gui style
+- The `.editorconfig` and `Examples.sln.DotSettings` enforce the Terminal.Gui style
+- `.config/dotnet-tools.json` provides the ReSharper CLI tool
 
 ## Adding a New Example
 
@@ -60,4 +83,4 @@ This repository follows Terminal.Gui coding conventions:
 2. Add a `.csproj` with `<PackageReference Include="Terminal.Gui" />`
 3. Add the project to `Examples.sln`
 4. Include a `README.md` explaining what the example demonstrates
-5. Ensure `dotnet build` passes with no warnings
+5. Ensure `dotnet build` and `dotnet format --verify-no-changes` pass
