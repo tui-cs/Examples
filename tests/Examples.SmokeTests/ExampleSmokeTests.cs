@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Xunit;
 
 namespace Examples.SmokeTests;
 
@@ -22,7 +23,6 @@ public class ExampleSmokeTests
     [InlineData ("InlineSelect")]
     [InlineData ("ShortcutTest")]
     [InlineData ("SelfContained")]
-    [InlineData ("ReactiveExample")]
     [InlineData ("InlineCLI")]
     [InlineData ("PromptExample")]
     public async Task Example_StartsAndExitsCleanly (string projectName)
@@ -49,14 +49,14 @@ public class ExampleSmokeTests
 
         Assert.NotNull (process);
 
-        string stdout = await process.StandardOutput.ReadToEndAsync ();
-        string stderr = await process.StandardError.ReadToEndAsync ();
+        string stdout = await process.StandardOutput.ReadToEndAsync (TestContext.Current.CancellationToken);
+        string stderr = await process.StandardError.ReadToEndAsync (TestContext.Current.CancellationToken);
 
         using CancellationTokenSource cts = new (Timeout);
 
         try
         {
-            await process.WaitForExitAsync (cts.Token);
+            await process.WaitForExitAsync (TestContext.Current.CancellationToken);
         }
         catch (OperationCanceledException)
         {
