@@ -13,7 +13,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 using IApplication app = Application.Create ().Init ();
 
-var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
 
 if (smokeTest)
 {

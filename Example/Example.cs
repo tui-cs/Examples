@@ -15,7 +15,7 @@ ConfigurationManager.Enable (ConfigLocations.All);
 
 IApplication app = Application.Create ().Init ();
 
-var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -61,7 +61,7 @@ public sealed class ExampleWindow : Runnable<string?>
         };
 
         Label passwordLabel = new ()
-        { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
+            { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
 
         TextField passwordText = new ()
         {

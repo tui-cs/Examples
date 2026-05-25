@@ -24,7 +24,7 @@ Application.AppModel = AppModel.Inline;
 
 IApplication app = Application.Create ().Init ();
 
-var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
+var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
 
 if (smokeTest)
 {
@@ -66,7 +66,7 @@ public sealed class InlinePromptView : Window
 
         StatusBar statusBar = new () { AlignmentModes = AlignmentModes.IgnoreFirstOrLast, SchemeName = SchemeName };
         Shortcut itemCountShortcut = new ()
-        { Title = "No items", MouseHighlightStates = MouseState.None, Enabled = false };
+            { Title = "No items", MouseHighlightStates = MouseState.None, Enabled = false };
 
         _cursorShortcut = new Shortcut { Text = "Cursor", MouseHighlightStates = MouseState.None, Enabled = false };
         _driverShortcut = new Shortcut { Text = "Driver", MouseHighlightStates = MouseState.None, Enabled = false };

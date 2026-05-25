@@ -44,7 +44,7 @@ public sealed class Logo : View
         Gradient gradient = new (stops, steps);
 
         var artHeight = 3;
-        var artWidth = _artLines[0].Length;
+        var artWidth = _artLines [0].Length;
 
         Dictionary<Point, Color> colorMap =
             gradient.BuildCoordinateColorMapping (artHeight, artWidth, GradientDirection.Diagonal);
@@ -53,11 +53,11 @@ public sealed class Logo : View
 
         for (var row = 0; row < _artLines.Length; row++)
         {
-            var line = _artLines[row];
+            var line = _artLines [row];
 
             for (var col = 0; col < line.Length; col++)
             {
-                var ch = line[col];
+                var ch = line [col];
 
                 if (ch == ' ')
                 {

@@ -16,7 +16,7 @@ public static class Program
 {
     private static async Task Main (string[] args)
     {
-        var smokeTest = args.Length > 0 && args[0] == "--smoke-test";
+        var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
 
         if (smokeTest)
         {
@@ -99,7 +99,7 @@ public class ExampleWindow : Runnable<string>
         };
 
         Label passwordLabel = new ()
-        { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
+            { Text = "Password:", X = Pos.Left (usernameLabel), Y = Pos.Bottom (usernameLabel) + 1 };
 
         TextField passwordText = new ()
         {
