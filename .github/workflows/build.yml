@@ -38,15 +38,9 @@ jobs:
       - name: Build
         run: dotnet build Examples.sln --no-restore
 
-      # Style gate runs once (Linux). dotnet format catches whitespace/analyzer drift;
-      # jb cleanupcode catches what dotnet format misses (space before new(), var usage,
-      # expression-bodied members, using sorting).
-      - name: Verify code style — dotnet format
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          dotnet format Examples.sln --no-restore --verify-no-changes \
-            --exclude tests/
-
+      # ReSharper is the authoritative code formatter.
+      # It enforces space-before-parens, space-before-brackets, var usage,
+      # expression-bodied members, and using sorting.
       - name: Verify code style — ReSharper cleanupcode
         if: matrix.os == 'ubuntu-latest'
         run: |
