@@ -13,5 +13,7 @@
        Example: dotnet build -p:TerminalGuiRoot=../Terminal.Gui -->
   <PropertyGroup Condition="'$(TerminalGuiRoot)' != ''">
     <UseLocalTerminalGui>true</UseLocalTerminalGui>
+    <!-- Resolve relative paths against the repo root (where this file lives), not each .csproj -->
+    <TerminalGuiRoot>$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '$(TerminalGuiRoot)'))</TerminalGuiRoot>
   </PropertyGroup>
 </Project>
