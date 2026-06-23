@@ -6,7 +6,7 @@ Thank you for your interest in contributing examples!
 
 1. **One example per directory** — each example should be self-contained
 2. **Use NuGet references** — reference Terminal.Gui via `<PackageReference Include="Terminal.Gui" />`, not ProjectReference
-3. **Follow coding conventions** — see the `.editorconfig` and [Terminal.Gui CONTRIBUTING.md](https://github.com/gui-cs/Terminal.Gui/blob/develop/CONTRIBUTING.md)
+3. **Follow coding conventions** — see the `.editorconfig` and [Terminal.Gui CONTRIBUTING.md](https://github.com/tui-cs/Terminal.Gui/blob/develop/CONTRIBUTING.md)
 4. **Include a README** — explain what the example demonstrates and how to run it
 5. **Keep it focused** — each example should demonstrate one concept or integration pattern
 6. **Ensure it builds** — run `dotnet build` before submitting

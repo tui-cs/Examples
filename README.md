@@ -1,9 +1,9 @@
 ﻿# Terminal.Gui Examples
 
-Community examples and standalone demos for [Terminal.Gui](https://github.com/gui-cs/Terminal.Gui) — the cross-platform .NET console UI toolkit.
+Community examples and standalone demos for [Terminal.Gui](https://github.com/tui-cs/Terminal.Gui) — the cross-platform .NET console UI toolkit.
 
 > **Note:** These examples are companion projects to the main Terminal.Gui repository.
-> For the UICatalog demo app and ScenarioRunner, see [gui-cs/Terminal.Gui/Examples](https://github.com/gui-cs/Terminal.Gui/tree/develop/Examples).
+> For the UICatalog demo app and ScenarioRunner, see [tui-cs/Terminal.Gui/Examples](https://github.com/tui-cs/Terminal.Gui/tree/develop/Examples).
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ This replaces the NuGet `PackageReference` with a `ProjectReference`, so any bre
 
 ## Contributing
 
-1. Follow Terminal.Gui [coding conventions](https://github.com/gui-cs/Terminal.Gui/blob/develop/CONTRIBUTING.md)
+1. Follow Terminal.Gui [coding conventions](https://github.com/tui-cs/Terminal.Gui/blob/develop/CONTRIBUTING.md)
 2. Examples reference Terminal.Gui via NuGet by default; use `TerminalGuiRoot` for local development
 3. Each example should have its own project directory with a descriptive name
 4. Include a README.md in each example explaining what it demonstrates

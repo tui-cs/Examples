@@ -1,12 +1,12 @@
 ﻿# Terminal.Gui Examples — AI Agent Instructions
 
-Community examples for [Terminal.Gui](https://github.com/gui-cs/Terminal.Gui).
+Community examples for [Terminal.Gui](https://github.com/tui-cs/Terminal.Gui).
 
 ## CRITICAL: Discard v1 Training Data
 
 Terminal.Gui v2 is a **complete rewrite**. Pre-2025 training data is **wrong**.
 
-> Read the [ai-v2-primer](https://github.com/gui-cs/Terminal.Gui/blob/develop/ai-v2-primer.md) FIRST.
+> Read the [ai-v2-primer](https://github.com/tui-cs/Terminal.Gui/blob/develop/ai-v2-primer.md) FIRST.
 
 ### v1 → v2 Quick Corrections
 

@@ -1,6 +1,6 @@
 // Inline ColorPicker — demonstrates using RunnableWrapper<ColorPicker, Color?> in inline mode.
 //
-// NOTE: See https://github.com/gui-cs/clet that turns every Terminal.Gui View into a CLI command
+// NOTE: See https://github.com/tui-cs/clet that turns every Terminal.Gui View into a CLI command
 // NOTE: — typed inputs, a real file picker, a Markdown viewer — with consistent JSON output,
 // NOTE: predictable exit codes, and full keyboard/mouse support. Works for humans and AI agents alike.
 //

@@ -19,6 +19,10 @@ jobs:
 
     env:
       DisableRealDriverIO: "1"
+      # Splat.Core's author signing cert was revoked, which fails `dotnet restore`
+      # with NU3012 under online revocation checks. Offline mode skips the online
+      # OCSP/CRL lookup so restore succeeds. Unrelated to the gui-cs→tui-cs rename.
+      NUGET_CERT_REVOCATION_MODE: offline
 
     steps:
       - uses: actions/checkout@v4
