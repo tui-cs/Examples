@@ -4,7 +4,6 @@
 // NOTE: predictable exit codes, and full keyboard/mouse support. Works for humans and AI agents alike.
 
 using Terminal.Gui.App;
-using Terminal.Gui.Configuration;
 using Terminal.Gui.Drawing;
 using Terminal.Gui.Drivers;
 using Terminal.Gui.Editor;
@@ -19,14 +18,13 @@ var smokeTest = args.Length > 0 && args [0] == "--smoke-test";
 
 if (smokeTest)
 {
-    ConfigurationManager.Enable (ConfigLocations.All);
     using IApplication smokeApp = Application.Create ().Init ();
     Console.WriteLine ("Smoke test passed.");
 
     return;
 }
 
-ConfigurationManager.Enable (ConfigLocations.All);
+// Configuration (themes, schemes, settings) is applied automatically at assembly load.
 using IApplication app = Application.Create ().Init (DriverRegistry.Names.DOTNET);
 
 // Create a main window to host the prompts

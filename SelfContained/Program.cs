@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Terminal.Gui.App;
-using Terminal.Gui.Configuration;
 using Terminal.Gui.Drawing;
 using Terminal.Gui.Input;
 using Terminal.Gui.ViewBase;
@@ -20,7 +19,6 @@ public static class Program
 
         if (smokeTest)
         {
-            ConfigurationManager.Enable (ConfigLocations.All);
             Application.AppModel = AppModel.Inline;
             IApplication app = Application.Create ();
             app.Init ();
@@ -42,7 +40,7 @@ public static class Program
     [RequiresUnreferencedCode ("Calls Terminal.Gui.Application.Run<T>(Func<Exception, Boolean>, IDriver)")]
     private static void Run ()
     {
-        ConfigurationManager.Enable (ConfigLocations.All);
+        // Configuration (themes, schemes, settings) is applied automatically at assembly load.
 
         // Use Inline mode — renders below the shell prompt without alternate screen buffer
         Application.AppModel = AppModel.Inline;
