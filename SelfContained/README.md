@@ -8,6 +8,10 @@ This example uses the modern Terminal.Gui application model:
 
 ```csharp
 // Configuration (themes, schemes, settings) is applied automatically at assembly load.
+
+// Use Inline mode — renders below the shell prompt without alternate screen buffer
+Application.AppModel = AppModel.Inline;
+
 IApplication app = Application.Create ();
 app.Init ();
 
@@ -20,12 +24,12 @@ Console.WriteLine ($@"Username: {userName}");
 
 Key aspects of the modern model:
 
+- Set `Application.AppModel = AppModel.Inline` before `Application.Create()` for inline (non-fullscreen) rendering — the feature this example demonstrates
 - Use `Application.Create()` to create an `IApplication` instance
 - Call `app.Init()` to initialize the application
 - Use `app.Run(view)` to run views with proper resource management
 - Call `app.Dispose()` to clean up resources and restore the terminal
-- Event handling uses `Accepting` event instead of legacy `Accept` event
-- Set `e.Handled = true` in event handlers to prevent further processing
+- This example subscribes to the button's `Accepted` event (a fire-and-forget side-effect); use `Accepting` with `e.Handled = true` only when you need to inspect or cancel the in-flight action
 
 With `Debug` the `.csproj` is used and with `Release` the latest `nuget package` is used, either in `Solution Configurations` or in `Profile Publish`.
 

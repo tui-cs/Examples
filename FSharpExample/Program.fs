@@ -1,6 +1,8 @@
 // A simple Terminal.Gui example in F#.
 // For the full range of functionality see the UICatalog project in the Terminal.Gui repo.
 
+open System
+open System.Threading
 open Terminal.Gui.App
 open Terminal.Gui.Input
 open Terminal.Gui.ViewBase
@@ -53,13 +55,24 @@ type ExampleWindow () as this =
 let main argv =
     // Configuration (themes, schemes, settings) is applied automatically at assembly load.
     let app = Application.Create().Init ()
-    app.Run<ExampleWindow> () |> ignore
 
-    // Dispose the application to free resources and restore the previous screen
-    app.Dispose ()
+    let smokeTest = argv.Length > 0 && argv.[0] = "--smoke-test"
 
-    // To see this output on the screen it must be done after Dispose,
-    // which restores the previous screen.
-    printfn "Username: %s" ExampleWindow.UserName
+    if smokeTest then
+        // Start, render, and exit cleanly after 2 seconds (used by tests/Examples.SmokeTests).
+        use cts = new CancellationTokenSource (TimeSpan.FromSeconds 2.0)
+        app.RunAsync<ExampleWindow>(cts.Token).GetAwaiter().GetResult () |> ignore
+        app.Dispose ()
+        printfn "Smoke test passed."
+        0
+    else
+        app.Run<ExampleWindow> () |> ignore
 
-    0 // return an integer exit code
+        // Dispose the application to free resources and restore the previous screen
+        app.Dispose ()
+
+        // To see this output on the screen it must be done after Dispose,
+        // which restores the previous screen.
+        printfn "Username: %s" ExampleWindow.UserName
+
+        0 // return an integer exit code

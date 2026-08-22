@@ -17,6 +17,8 @@ On Windows `~` expands to `C:\Users\<username>`. On macOS/Linux `~` expands to `
 
 As of Terminal.Gui 2.5, configuration is loaded via Microsoft.Extensions.Configuration (`TuiConfigurationBuilder`) and uses **nested objects**, not dotted keys. Configuration is applied automatically at assembly load — `ConfigurationManager.Enable ()` no longer exists.
 
+Bindings overlay **per command**: a command you set replaces that command's default binding entirely (include every key you want active for it), while commands you omit keep their compile-time defaults. That is why these files only list the commands they actually change.
+
 To convert a pre-2.5 config (dotted keys, `Themes`/`Schemes` arrays), run the migrator from the Terminal.Gui repo:
 
 ```bash
@@ -27,6 +29,8 @@ See [Migrating ConfigurationManager to TuiConfigurationBuilder](https://github.c
 
 ## What Each File Changes
 
+For reference, the compile-time defaults are: Quit = `Esc` (all platforms); Suspend = `Ctrl+Z` (macOS/Linux only); Undo = `Ctrl+Z` everywhere plus `Ctrl+/` on macOS/Linux; Redo = `Ctrl+Y` everywhere plus `Ctrl+Shift+Z` on macOS/Linux; Delete char right = `Delete` or `Ctrl+D` (all platforms).
+
 ### `macos.json` — macOS-style bindings (for Windows users)
 
 | What changes | Default (Windows) | With `macos.json` |
@@ -35,17 +39,22 @@ See [Migrating ConfigurationManager to TuiConfigurationBuilder](https://github.c
 | Suspend app to background | *(not available)* | `Ctrl+Z` |
 | Undo | `Ctrl+Z` | `Ctrl+Z` or `Ctrl+/` |
 | Redo | `Ctrl+Y` | `Ctrl+Y` or `Ctrl+Shift+Z` |
-| Delete char right | `Delete` | `Delete` or `Ctrl+D` |
+| Kill word right (TextField) | `Ctrl+Delete` | `Ctrl+W` |
 
 ### `windows.json` — Windows-style bindings (for macOS users)
 
 | What changes | Default (macOS) | With `windows.json` |
 |---|---|---|
-| Quit app | `Esc` or `Ctrl+Q` | `Esc` only |
-| Suspend app to background | `Ctrl+Z` | *(disabled)* |
 | Undo | `Ctrl+Z` or `Ctrl+/` | `Ctrl+Z` only |
 | Redo | `Ctrl+Y` or `Ctrl+Shift+Z` | `Ctrl+Y` only |
 | Delete char right | `Delete` or `Ctrl+D` | `Delete` only |
+| Word left/right (TextField) | `Ctrl+←/→` or `Ctrl+↑/↓` | `Ctrl+←/→` only |
+
+**Limitation:** a binding cannot be *removed* via `config.json` — an omitted command keeps its default, and empty entries are dropped. So `windows.json` cannot disable Suspend (`Ctrl+Z` on macOS/Linux); to remove a binding entirely, do it in code:
+
+```csharp
+Application.RemoveDefaultKeyBinding (Command.Suspend);
+```
 
 ## How It Works
 
@@ -85,8 +94,6 @@ Each `PlatformKeyBinding` has four optional fields:
 | `Windows` | Windows only (added to `All`) |
 | `Linux` | Linux only (added to `All`) |
 | `Macos` | macOS only (added to `All`) |
-
-Bindings overlay **per command**: a command you set replaces that command's default binding entirely (include every key you want active for it), while commands you omit keep their compile-time defaults.
 
 Key bindings can also be changed in code, before `Application.Create ()`:
 

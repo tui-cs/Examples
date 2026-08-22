@@ -31,14 +31,15 @@ ViewModel
     .BindTo (usernameInput, x => x.Text);
 ```
 
-Note that your view model should implement `INotifyPropertyChanged` or inherit from a `ReactiveObject`. If you wish to implement `OneWayToSource` data binding, listen to e.g. the `TextChanged` event of a `TextField` via `Observable.FromEventPattern` (the generated `.Events ()` wrappers work too, but as of Terminal.Gui 2.5 the ObservableEvents source generator cannot wrap `TextField`, which hides `View.TextChanging` with a different delegate type):
+Note that your view model should implement `INotifyPropertyChanged` or inherit from a `ReactiveObject`. If you wish to implement `OneWayToSource` data binding, listen to the view's change event via `Observable.FromEventPattern`. For `TextField` specifically, the generated `.Events ()` wrappers do **not** work — as of Terminal.Gui 2.5 the ObservableEvents source generator cannot wrap `TextField`, which hides `View.TextChanging` with a different delegate type (`.Events ()` remains fine for other views, like the `Button` below). `TextField` implements `IValue<string>`, so its `ValueChanged` event delivers the new value directly and only fires on real changes:
 
 ```cs
 // 'usernameInput' is 'TextField'
 Observable
-    .FromEventPattern (h => usernameInput.TextChanged += h, h => usernameInput.TextChanged -= h)
-    .Select (_ => usernameInput.Text)
-    .DistinctUntilChanged ()
+    .FromEventPattern<ValueChangedEventArgs<string?>> (
+        h => usernameInput.ValueChanged += h,
+        h => usernameInput.ValueChanged -= h)
+    .Select (e => e.EventArgs.NewValue ?? string.Empty)
     .BindTo (ViewModel, x => x.Username);
 ```
 
