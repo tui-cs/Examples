@@ -141,18 +141,21 @@ public class LoginView : Window, IViewFor<LoginViewModel>
 
     public LoginViewModel ViewModel { get; set; }
 
-    // TextField hides View.TextChanging with a different delegate type, which the ObservableEvents
-    // source generator cannot wrap; observe IValue<string>.ValueChanged instead, which delivers the
-    // new value directly and only fires on real changes.
-    private static IObservable<string> ObserveText (TextField field) =>
-        Observable
-            .FromEventPattern<ValueChangedEventArgs<string>> (h => field.ValueChanged += h, h => field.ValueChanged -= h)
-            .Select (e => e.EventArgs.NewValue ?? string.Empty);
-
     object IViewFor.ViewModel
     {
         get => ViewModel;
         set => ViewModel = (LoginViewModel)value;
+    }
+
+    // TextField hides View.TextChanging with a different delegate type, which the ObservableEvents
+    // source generator cannot wrap; observe IValue<string>.ValueChanged instead, which delivers the
+    // new value directly and only fires on real changes.
+    private static IObservable<string> ObserveText (TextField field)
+    {
+        return Observable
+            .FromEventPattern<ValueChangedEventArgs<string>> (h => field.ValueChanged += h,
+                h => field.ValueChanged -= h)
+            .Select (e => e.EventArgs.NewValue ?? string.Empty);
     }
 
     protected override void Dispose (bool disposing)
