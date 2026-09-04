@@ -9,9 +9,11 @@ using Terminal.Gui.Input;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
-// Override the default configuration for the application to use the Amber Phosphor theme
-ConfigurationManager.RuntimeConfig = """{ "Theme": "Amber Phosphor" }""";
-ConfigurationManager.Enable (ConfigLocations.All);
+// Override the default configuration for the application to use the Amber Phosphor theme.
+// Configuration is applied automatically at assembly load; setting RuntimeConfig and
+// re-applying overlays the override on top.
+TuiConfigurationBuilder.Shared.RuntimeConfig = """{ "Theme": "Amber Phosphor" }""";
+TuiConfigurationBuilder.Shared.ApplyToStaticFacades ();
 
 IApplication app = Application.Create ().Init ();
 

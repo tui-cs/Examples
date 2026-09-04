@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WideCharRepro", "WideCharRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.SmokeTests", "tests\Examples.SmokeTests\Examples.SmokeTests.csproj", "{A1B2C3D4-000D-0000-0000-00000000000D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpExample", "FSharpExample\FSharpExample.fsproj", "{167437AD-7BE5-46D7-8BC5-A0AB37DB2C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,14 @@ Global
 		{A1B2C3D4-000B-0000-0000-00000000000B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1B2C3D4-000B-0000-0000-00000000000B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1B2C3D4-000B-0000-0000-00000000000B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-000D-0000-0000-00000000000D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-000D-0000-0000-00000000000D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-000D-0000-0000-00000000000D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-000D-0000-0000-00000000000D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167437AD-7BE5-46D7-8BC5-A0AB37DB2C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167437AD-7BE5-46D7-8BC5-A0AB37DB2C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167437AD-7BE5-46D7-8BC5-A0AB37DB2C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167437AD-7BE5-46D7-8BC5-A0AB37DB2C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,14 +3,12 @@
 
 using System.Collections.ObjectModel;
 using Terminal.Gui.App;
-using Terminal.Gui.Configuration;
 using Terminal.Gui.Drawing;
 using Terminal.Gui.Input;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
 
-ConfigurationManager.Enable (ConfigLocations.All);
-
+// Configuration (themes, schemes, settings) is applied automatically at assembly load.
 using IApplication app = Application.Create ().Init ();
 
 var smokeTest = args.Length > 0 && args [0] == "--smoke-test";

@@ -24,6 +24,7 @@ public class ExampleSmokeTests
     [InlineData ("SelfContained")]
     [InlineData ("InlineCLI")]
     [InlineData ("PromptExample")]
+    [InlineData ("FSharpExample")]
     public async Task Example_StartsAndExitsCleanly (string projectName)
     {
         var projectPath = Path.Combine (SolutionRoot, projectName);
